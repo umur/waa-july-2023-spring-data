@@ -1,6 +1,7 @@
 package com.example.springdata1.controller;
 
 import com.example.springdata1.entity.Product;
+import com.example.springdata1.entity.Review;
 import com.example.springdata1.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,15 @@ public class ProductController {
     public ResponseEntity<Product> getById(@PathVariable Long id) {
         Product product = productService.findById(id);
         return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/reviews")
+    public ResponseEntity<List<Review>> getReviewsByProductId(@PathVariable Long id) {
+        Product product = productService.findById(id);
+        if (product != null) {
+            return new ResponseEntity<>(product.getReviews(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
     }
 
     @GetMapping
