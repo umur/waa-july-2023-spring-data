@@ -19,11 +19,11 @@ public class Product {
     private Double price;
     private Integer rating;
 
-//    @JsonManagedReference
+    @JsonManagedReference
     @ManyToOne
     private Category category;
 
-//    @JsonBackReference
+    @JsonBackReference
     @OneToMany(mappedBy = "product")
     private List<Review> reviews;
 
