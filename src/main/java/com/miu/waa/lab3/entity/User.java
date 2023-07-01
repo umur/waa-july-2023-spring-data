@@ -2,6 +2,7 @@ package com.miu.waa.lab3.entity;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +19,7 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String email;
     private String password;
     private String firstName;
@@ -26,6 +27,6 @@ public class User {
     @JoinColumn(name = "user_id")
     @OneToMany
     private List<Review> reviews;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 }

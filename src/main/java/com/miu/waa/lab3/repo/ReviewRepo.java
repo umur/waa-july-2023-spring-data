@@ -7,5 +7,5 @@ import org.springframework.data.repository.ListCrudRepository;
 import com.miu.waa.lab3.entity.Review;
 
 public interface ReviewRepo extends ListCrudRepository<Review, Integer> {
-    List<Review> findByProductIdEquals(int id);
+    List<Review> findByProductIdEquals(Long id);
 }
