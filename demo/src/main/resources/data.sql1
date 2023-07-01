@@ -1,0 +1,6 @@
+INSERT INTO product (id,name, price, color) VALUES (1,'Product 1', 100, 'red 1');
+INSERT INTO product (id,name, price, color) VALUES (2,'Product 2', 200, 'blue 2');
+
+INSERT INTO review (id,product_id, rating, comment) VALUES (1,1, 5, 'comment 1');
+INSERT INTO review (id,product_id, rating, comment) VALUES (2,1, 5, 'comment 2');
+INSERT INTO review (id,product_id, rating, comment) VALUES (3,1, 5, 'comment 3');
