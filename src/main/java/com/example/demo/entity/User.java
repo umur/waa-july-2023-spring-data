@@ -15,6 +15,6 @@ public class User {
     private String password;
     private String firstName;
     private String lastname;
-    @OneToOne
+    @OneToOne(cascade = CascadeType. ALL)
     private Address address;
 }

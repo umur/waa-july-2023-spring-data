@@ -26,4 +26,20 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getAllProducts(Double minPrice, Double maxPrice, Long categoryId, String keyword) {
         return productRepository.findProducts(Optional.ofNullable(minPrice).orElse(-1D),Optional.ofNullable(maxPrice).orElse(-1D),Optional.ofNullable(categoryId).orElse(-1L),"%"+keyword+"%");
     }
+
+    @Override
+    public Product getById(Long id) {
+        return productRepository.findById(id).orElseThrow(()->new RuntimeException("Product with Id "+id+" does not exist"));
+    }
+
+    @Override
+    public Product putMapping(Long id, Product product) {
+        product.setId(id);
+        return productRepository.save(product);
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
+         productRepository.deleteById(id);
+    }
 }

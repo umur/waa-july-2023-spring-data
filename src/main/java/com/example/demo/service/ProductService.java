@@ -9,4 +9,10 @@ public interface ProductService {
     Product saveProduct(Product product);
 
     List<Product> getAllProducts(Double minPrice, Double maxPrice, Long categoryId, String keyword);
+
+    Product getById(Long id);
+
+    Product putMapping(Long id, Product product);
+
+    void deleteProduct(Long id);
 }
