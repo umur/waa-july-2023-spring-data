@@ -31,5 +31,6 @@ public class Product {
     private Category category;
 
     @OneToMany()
+    @JoinColumn(name = "product_id")
     private List<Review> reviews;
 }
